@@ -15,7 +15,7 @@ const Fetch = () => {
                 return response.json();
             })
             .then(data => {
-                setWord(data[0].word);
+                setWord(data[0].word.toUpperCase());
                 setError(null);
             })
             .catch(err => {

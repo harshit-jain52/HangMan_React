@@ -30,7 +30,17 @@ button {
   font-size: 35px;
 }
 
-.error{
+.error {
   font-family: 'Courier New', Courier, monospace;
   font-size: 40px;
+}
+
+.input {
+  font-family: 'Gochi Hand';
+  font-size: 30px;
+}
+
+.char {
+  width: 30px;
+  font: inherit;
 }
