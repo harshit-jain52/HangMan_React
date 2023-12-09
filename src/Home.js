@@ -1,4 +1,4 @@
-import Game from './Game'
+import Fetch from './Fetch'
 import Welcome from './Welcome';
 import { useState } from 'react';
 
@@ -12,9 +12,9 @@ const Home = () => {
         setButtonText(toggle ? "play" : "restart");
     }
     return (
-        <div>
+        <div className='home'>
             {
-                !toggle ? <Welcome /> : <Game />
+                !toggle ? <Welcome /> : <Fetch />
             }
             <button onClick={handleClick}>{buttonText}</button>
         </div>);

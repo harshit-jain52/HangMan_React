@@ -4,9 +4,7 @@ body {
   background-image: url(../public/chalkboard.jpg);
 }
 
-h1,
-h2,
-h3 {
+.home {
   color: lavender;
   font-family: 'Just Another Hand';
 }
@@ -30,4 +28,9 @@ button {
   color: gray;
   font-family: 'Gochi Hand';
   font-size: 35px;
+}
+
+.error{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
 }

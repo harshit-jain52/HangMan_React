@@ -1,7 +1,7 @@
-const Game = () => {
+const Game = ({ word }) => {
     return (
         <div className="game">
-            <h3>Playing..</h3>
+            <h1>The word is {word}</h1>
         </div>
     );
 }
