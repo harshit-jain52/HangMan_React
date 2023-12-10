@@ -44,3 +44,13 @@ button {
   width: 30px;
   font: inherit;
 }
+
+.displayWord {
+  flex-direction: row;
+}
+
+.displayWord span{
+  font-family: 'Gochi Hand';
+  font-size: 30px;
+  margin: 5px;
+}
