@@ -8,7 +8,9 @@ const Fetch = () => {
     const [definition, setDefinition] = useState(null);
 
     useEffect(() => {
-        fetch("https://random-words-api-harshit-jain52s-projects.vercel.app/word/noun")
+        const abortCont = new AbortController();
+
+        fetch("https://random-words-api-harshit-jain52s-projects.vercel.app/word/noun", { signal: abortCont.signal })
             .then(response => {
                 if (!response.ok) {
                     throw new Error("could not fetch the data");
@@ -20,13 +22,22 @@ const Fetch = () => {
                 setError(null);
             })
             .catch(err => {
-                setError(err.message);
+                if (err.name === 'AbortError') {
+                    console.log("fetch aborted");
+                }
+                else {
+                    setError(err.message);
+                }
             });
+
+        return () => abortCont.abort();
     }, []);
 
     useEffect(() => {
+        const abortCont = new AbortController();
+
         if (word) {
-            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, { signal: abortCont.signal })
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("could not fetch the data");
@@ -38,9 +49,15 @@ const Fetch = () => {
                     setError(null);
                 })
                 .catch(err => {
-                    setError(err.message);
+                    if (err.name === 'AbortError') {
+                        console.log("fetch aborted");
+                    }
+                    else {
+                        setError(err.message);
+                    }
                 });
         }
+        return () => abortCont.abort();
     }, [word]);
 
     return (
