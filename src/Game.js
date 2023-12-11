@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 let enteredChars = null;
 
-const Game = ({ word }) => {
-    // console.log(word);
+const Game = ({ word, definition }) => {
+    console.log(word, definition);
     useEffect(() => {
         enteredChars = new Set();
     }, []);
@@ -72,10 +72,10 @@ const Game = ({ word }) => {
         wordChars.forEach(char => html += `<span>${char}</span>`);
         display.innerHTML = html;
 
-        if(result){
+        if (result) {
             display.style.color = "#2ec27e";
         }
-        else{
+        else {
             display.style.color = "#ed333b";
         }
     }
