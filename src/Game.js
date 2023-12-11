@@ -2,22 +2,32 @@ import { useEffect, useState } from "react";
 let enteredChars = null;
 
 const Game = ({ word }) => {
-    console.log(word);
+    // console.log(word);
     useEffect(() => {
         enteredChars = new Set();
     }, []);
 
     const regex = /[A-Z]/
     const wordChars = word.split("");
+    const validChars = new Set(wordChars);
     const [toDisplay, setToDisplay] = useState(Array(word.length).fill('__'));
-    
+    const [hang, setHang] = useState(0);
+
+    useEffect(() => {
+        if (!toDisplay.some((char) => char === '__')) {
+            endGame(true);
+        }
+        else if (hang === 5) {
+            endGame(false);
+        }
+    }, [hang, toDisplay])
+
     const displayChars = () => {
         let newDisplay = [];
         wordChars.forEach((char) => {
             newDisplay.push(enteredChars.has(char) ? char : '__');
         })
         setToDisplay(newDisplay);
-        console.log(newDisplay.some((char) => char === '__'));
     }
 
     const displayMessage = message => {
@@ -44,11 +54,31 @@ const Game = ({ word }) => {
             }
             else {
                 enteredChars.add(char);
-                displayChars();
+                if (validChars.has(char))
+                    displayChars();
+                else {
+                    setHang(hang + 1);
+                }
             }
         }
     }
 
+    function endGame(result) {
+        const input = document.querySelector('.input');
+        input.parentElement.removeChild(input);
+
+        const display = document.querySelector('.displayWord');
+        let html = "";
+        wordChars.forEach(char => html += `<span>${char}</span>`);
+        display.innerHTML = html;
+
+        if(result){
+            display.style.color = "#2ec27e";
+        }
+        else{
+            display.style.color = "#ed333b";
+        }
+    }
     return (
         <div className="game">
             <h1>The word is...</h1>
@@ -73,7 +103,9 @@ const Game = ({ word }) => {
                     <span>Enter an alphabet...</span>
                 </form>
             </div>
-
+            <div className="chances">
+                <h3>{5 - hang} chances remaining</h3>
+            </div>
         </div>
     );
 }
