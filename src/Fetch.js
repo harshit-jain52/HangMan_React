@@ -10,7 +10,7 @@ const Fetch = () => {
     useEffect(() => {
         const abortCont = new AbortController();
 
-        fetch("https://random-words-api-harshit-jain52s-projects.vercel.app/word/noun", { signal: abortCont.signal })
+        fetch("https://random-words-api-hj-52.vercel.app/word/noun", { signal: abortCont.signal })
             .then(response => {
                 if (!response.ok) {
                     throw new Error("could not fetch the data");
