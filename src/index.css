@@ -9,16 +9,34 @@ body {
   font-family: 'Just Another Hand';
 }
 
+.welcome,
+.loading {
+  position: relative;
+  top: 200px;
+}
+
+.home button {
+  position: absolute;
+  bottom: 300px;
+  color: rgb(102, 100, 100);
+  font-family: 'Gochi Hand';
+  font-size: 40px;
+}
+
 h1 {
-  font-size: 70px;
+  font-size: 200px;
+}
+
+h2 {
+  font-size: 100px;
 }
 
 h3 {
-  font-size: 50px;
+  font-size: 70px;
 }
 
 p {
-  font-size: 25px;
+  font-size: 40px;
 }
 
 div {
@@ -28,12 +46,6 @@ div {
   flex-direction: column;
 }
 
-button {
-  color: gray;
-  font-family: 'Gochi Hand';
-  font-size: 35px;
-}
-
 .error {
   font-family: 'Courier New', Courier, monospace;
   font-size: 40px;
@@ -41,7 +53,12 @@ button {
 
 .input {
   font-family: 'Gochi Hand';
-  font-size: 30px;
+  font-size: 35px;
+}
+
+.input input {
+  margin: 5px;
+  text-align: center;
 }
 
 .char {
@@ -55,17 +72,40 @@ button {
 
 .displayWord span {
   font-family: 'Gochi Hand';
-  font-size: 30px;
-  margin: 5px;
+  font-size: 100px;
+  margin: 15px;
+}
+
+.hint {
+  position: fixed;
+  right: 100px;
 }
 
 .hintButton {
+  position: inherit;
   background: none;
   border: none;
-  padding: 10px;
-  margin: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .hintButton:hover {
   filter: drop-shadow(0 0 7px #ffef10);
+}
+
+.game {
+  position: relative;
+  top: 200px;
+}
+
+.hintText {
+  position: inherit;
+  right: 50px;
+  top: 100px;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.164);
+  border-radius: 10%;
 }

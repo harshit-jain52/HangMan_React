@@ -13,13 +13,13 @@ const Game = ({ word, definition }) => {
     }, [word]);
 
     const regex = /[A-Z]/
-    const [toDisplay, setToDisplay] = useState(Array(word.length).fill('__'));
+    const [toDisplay, setToDisplay] = useState(Array(word.length).fill('_'));
     const [hang, setHang] = useState(0);
     const [inputChar, setInputChar] = useState('');
     const [message, setMessage] = useState("Enter an alphabet...");
 
     useEffect(() => {
-        if (!toDisplay.some((char) => char === '__')) {
+        if (!toDisplay.some((char) => char === '_')) {
             endGame(true);
         }
         else if (hang === 5) {
@@ -30,7 +30,7 @@ const Game = ({ word, definition }) => {
     const displayChars = () => {
         let newDisplay = [];
         wordChars.forEach((char) => {
-            newDisplay.push(enteredChars.has(char) ? char : '__');
+            newDisplay.push(enteredChars.has(char) ? char : '_');
         })
         setToDisplay(newDisplay);
     }
@@ -68,6 +68,7 @@ const Game = ({ word, definition }) => {
     function endGame(result) {
         const input = document.querySelector('.input');
         const hint = document.querySelector('.hint');
+        const lastMsg = document.querySelector('.chances h3');
         input.parentElement.removeChild(input);
         hint.parentElement.removeChild(hint);
 
@@ -78,14 +79,15 @@ const Game = ({ word, definition }) => {
 
         if (result) {
             display.style.color = "#2ec27e";
+            lastMsg.textContent = "Correct Guess!";
         }
         else {
             display.style.color = "#ed333b";
+            lastMsg.textContent = "Better Luck Next Time :(";
         }
     }
     return (
         <div className="game">
-            <h1>The word is...</h1>
             <div className="displayWord">
                 {toDisplay.map((char, idx) => (
                     <span key={idx}>{char}</span>
