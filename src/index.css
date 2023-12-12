@@ -17,6 +17,10 @@ h3 {
   font-size: 50px;
 }
 
+p {
+  font-size: 25px;
+}
+
 div {
   display: flex;
   align-items: center;
@@ -49,8 +53,19 @@ button {
   flex-direction: row;
 }
 
-.displayWord span{
+.displayWord span {
   font-family: 'Gochi Hand';
   font-size: 30px;
   margin: 5px;
+}
+
+.hintButton {
+  background: none;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+.hintButton:hover {
+  filter: drop-shadow(0 0 7px #ffef10);
 }

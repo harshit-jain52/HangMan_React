@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
+import Hint from "./Hint";
 let enteredChars = null;
+let wordChars = null;
+let validChars = null;
 
 const Game = ({ word, definition }) => {
-    console.log(word, definition);
+    // console.log(word, definition);
     useEffect(() => {
         enteredChars = new Set();
-    }, []);
+        wordChars = word.split("");
+        validChars = new Set(wordChars);
+    }, [word]);
 
     const regex = /[A-Z]/
-    const wordChars = word.split("");
-    const validChars = new Set(wordChars);
     const [toDisplay, setToDisplay] = useState(Array(word.length).fill('__'));
     const [hang, setHang] = useState(0);
+    const [inputChar, setInputChar] = useState('');
+    const [message, setMessage] = useState("Enter an alphabet...");
 
     useEffect(() => {
         if (!toDisplay.some((char) => char === '__')) {
@@ -30,20 +35,17 @@ const Game = ({ word, definition }) => {
         setToDisplay(newDisplay);
     }
 
-    const displayMessage = message => {
-        const span = document.forms['alpha'].querySelector('span');
-        const text = span.textContent;
-        span.textContent = message;
+    const displayMessage = msg => {
+        setMessage(msg);
         setTimeout(() => {
-            span.textContent = text;
+            setMessage("Enter an alphabet...");
         }, 500)
     }
 
     const handleSubmit = e => {
         e.preventDefault();
-        const input = document.forms['alpha'].querySelector('input[type="text"]');
-        const char = input.value.toUpperCase();
-        input.value = "";
+        const char = inputChar.toUpperCase();
+        setInputChar('');
 
         if (!char.match(regex)) {
             displayMessage("an ALPHABET please")
@@ -65,7 +67,9 @@ const Game = ({ word, definition }) => {
 
     function endGame(result) {
         const input = document.querySelector('.input');
+        const hint = document.querySelector('.hint');
         input.parentElement.removeChild(input);
+        hint.parentElement.removeChild(hint);
 
         const display = document.querySelector('.displayWord');
         let html = "";
@@ -98,14 +102,17 @@ const Game = ({ word, definition }) => {
                         type="text"
                         minLength="1"
                         maxLength="1"
+                        value={inputChar}
+                        onChange={(e) => setInputChar(e.target.value)}
                     >
                     </input>
-                    <span>Enter an alphabet...</span>
+                    <span>{message}</span>
                 </form>
             </div>
             <div className="chances">
                 <h3>{5 - hang} chances remaining</h3>
             </div>
+            <Hint definition={definition} />
         </div>
     );
 }
