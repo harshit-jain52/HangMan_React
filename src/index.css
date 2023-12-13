@@ -59,6 +59,7 @@ div {
 .input input {
   margin: 5px;
   text-align: center;
+  outline: none;
 }
 
 .char {
@@ -108,4 +109,15 @@ div {
   width: auto;
   background-color: rgba(0, 0, 0, 0.164);
   border-radius: 10%;
+}
+
+.stick {
+  position: fixed;
+  left: 570px;
+  bottom: 300px;
+}
+
+.stick img {
+  height: 180px;
+  filter: drop-shadow(0 0 10px #ca3f3f);
 }

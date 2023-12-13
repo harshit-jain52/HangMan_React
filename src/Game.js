@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Hint from "./Hint";
+import Stickfigure from "./Stickfigure";
 let enteredChars = null;
 let wordChars = null;
 let validChars = null;
@@ -69,6 +70,7 @@ const Game = ({ word, definition }) => {
         const input = document.querySelector('.input');
         const hint = document.querySelector('.hint');
         const lastMsg = document.querySelector('.chances h3');
+        const stickFigure = document.querySelector('.stick');
         input.parentElement.removeChild(input);
         hint.parentElement.removeChild(hint);
 
@@ -80,6 +82,7 @@ const Game = ({ word, definition }) => {
         if (result) {
             display.style.color = "#2ec27e";
             lastMsg.textContent = "Correct Guess!";
+            stickFigure.parentElement.removeChild(stickFigure);
         }
         else {
             display.style.color = "#ed333b";
@@ -115,6 +118,7 @@ const Game = ({ word, definition }) => {
                 <h3>{5 - hang} chances remaining</h3>
             </div>
             <Hint definition={definition} />
+            <Stickfigure hang={hang} />
         </div>
     );
 }
