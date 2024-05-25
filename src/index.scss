@@ -1,30 +1,52 @@
+// fonts
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Just+Another+Hand&display=swap');
+$font-primary: 'Just Another Hand';
+$font-secondary: 'Gochi Hand';
+$font-error: 'Courier New', Courier, monospace;
+
+// colors
+@import 'styles/_colors.module';
+
+// spacing
+$base-padding: 0.50rem;
+$base-margin: 0.75rem;
+
+// borders
+$base-border-thickness: 1px;
+$base-border-radius: 10px;
 
 body {
   background-image: url(../public/chalkboard.jpg);
 }
 
-.home {
-  color: lavender;
-  font-family: 'Just Another Hand';
-}
-
 .welcome,
 .loading {
-  position: relative;
-  top: 200px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .home button {
   position: absolute;
-  bottom: 300px;
-  color: rgb(102, 100, 100);
-  font-family: 'Gochi Hand';
+  bottom: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $secondary;
+  font-family: $font-secondary;
   font-size: 40px;
+  border-radius: $base-border-radius;
+  padding: $base-padding;
 }
 
 h1 {
   font-size: 200px;
+  color: $primary;
+  font-family: $font-primary;
+}
+
+.displayWord, .input {
+  color: $primary;
 }
 
 h2 {
@@ -33,6 +55,8 @@ h2 {
 
 h3 {
   font-size: 70px;
+  color: $primary;
+  font-family: $font-primary;
 }
 
 p {
@@ -47,12 +71,13 @@ div {
 }
 
 .error {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: $font-error;
   font-size: 40px;
+  color: $error;
 }
 
 .input {
-  font-family: 'Gochi Hand';
+  font-family: $font-secondary;
   font-size: 35px;
 }
 
@@ -72,7 +97,7 @@ div {
 }
 
 .displayWord span {
-  font-family: 'Gochi Hand';
+  font-family: $font-secondary;
   font-size: 100px;
   margin: 15px;
 }
@@ -91,7 +116,7 @@ div {
 }
 
 .hintButton:hover {
-  filter: drop-shadow(0 0 7px #ffef10);
+  filter: drop-shadow(0 0 7px $info);
 }
 
 .game {
@@ -100,6 +125,8 @@ div {
 }
 
 .hintText {
+  color: $primary;
+  font-family: $font-primary;
   position: inherit;
   right: 50px;
   top: 100px;

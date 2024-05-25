@@ -1,7 +1,10 @@
+import { HashLoader } from "react-spinners";
+import colors from "./styles/_colors.module.scss";
+
 const Loading = () => {
     return ( 
         <div className="loading">
-            <h2>Loading...</h2>
+            <HashLoader color={colors.primary} size={220} />
         </div>    
     );
 }

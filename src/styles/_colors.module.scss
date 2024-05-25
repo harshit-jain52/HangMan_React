@@ -1,0 +1,11 @@
+$primary: #F5FFFA;
+$secondary: rgb(102, 100, 100);
+$error: #d32752;
+$info: #ffef10;
+
+:export {
+  primary: $primary;
+  secondary: $secondary;
+  error: $error;
+  info: $info;
+}
