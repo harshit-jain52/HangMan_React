@@ -1,11 +1,13 @@
-$primary: #F5FFFA;
+$primary: #f5fffa;
 $secondary: rgb(102, 100, 100);
 $error: #d32752;
 $info: #ffef10;
+$highlight: #7b68ee;
 
 :export {
   primary: $primary;
   secondary: $secondary;
   error: $error;
   info: $info;
+  highlight: $highlight;
 }

@@ -1,19 +1,8 @@
-// fonts
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Just+Another+Hand&display=swap');
-$font-primary: 'Just Another Hand';
-$font-secondary: 'Gochi Hand';
-$font-error: 'Courier New', Courier, monospace;
+@use "sass:math";
 
-// colors
-@import 'styles/_colors.module';
-
-// spacing
-$base-padding: 0.50rem;
-$base-margin: 0.75rem;
-
-// borders
-$base-border-thickness: 1px;
-$base-border-radius: 10px;
+@import "styles/fonts";
+@import "styles/colors.module";
+@import "styles/base";
 
 body {
   background-image: url(../public/chalkboard.jpg);
@@ -40,27 +29,29 @@ body {
 }
 
 h1 {
-  font-size: 200px;
+  font-size: $font-size-4xl;
   color: $primary;
   font-family: $font-primary;
+  filter: drop-shadow(0 0 10px $highlight);
 }
 
-.displayWord, .input {
+.displayWord,
+.input {
   color: $primary;
 }
 
 h2 {
-  font-size: 100px;
+  font-size: $font-size-3xl;
 }
 
 h3 {
-  font-size: 70px;
+  font-size: $font-size-2xl;
   color: $primary;
   font-family: $font-primary;
 }
 
 p {
-  font-size: 40px;
+  font-size: $font-size-xl;
 }
 
 div {
@@ -72,19 +63,19 @@ div {
 
 .error {
   font-family: $font-error;
-  font-size: 40px;
+  font-size: $font-size-lg;
   color: $error;
 }
 
 .input {
   font-family: $font-secondary;
-  font-size: 35px;
-}
+  font-size: $font-size-xl;
 
-.input input {
-  margin: 5px;
-  text-align: center;
-  outline: none;
+  input {
+    margin: 5px;
+    text-align: center;
+    outline: none;
+  }
 }
 
 .char {
@@ -94,12 +85,12 @@ div {
 
 .displayWord {
   flex-direction: row;
-}
 
-.displayWord span {
-  font-family: $font-secondary;
-  font-size: 100px;
-  margin: 15px;
+  span {
+    font-family: $font-secondary;
+    font-size: $font-size-3xl;
+    margin: 15px;
+  }
 }
 
 .hint {
@@ -113,10 +104,11 @@ div {
   border: none;
   margin: 0;
   padding: 0;
-}
 
-.hintButton:hover {
-  filter: drop-shadow(0 0 7px $info);
+  :hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 7px $info);
+  }
 }
 
 .game {
@@ -135,16 +127,16 @@ div {
   padding: 10px;
   width: auto;
   background-color: rgba(0, 0, 0, 0.164);
-  border-radius: 10%;
+  border-radius: $base-border-radius;
 }
 
 .stick {
   position: fixed;
   left: 570px;
   bottom: 300px;
-}
 
-.stick img {
-  height: 180px;
-  filter: drop-shadow(0 0 10px #ca3f3f);
+  img {
+    height: 180px;
+    filter: drop-shadow(0 0 10px $highlight);
+  }
 }
