@@ -40,7 +40,7 @@ body {
 
 .home button {
   position: absolute;
-  bottom: 25%;
+  bottom: 23%;
   left: 50%;
   transform: translate(-50%, -50%);
   @include text-secondary;
@@ -86,7 +86,7 @@ form {
   @include flex-center(column);
 }
 
-.input {
+#main-input {
   font-family: $font-secondary;
   font-size: $font-size-xl;
 
@@ -95,6 +95,12 @@ form {
     text-align: center;
     outline: none;
   }
+}
+
+.msg {
+  color: $primary;
+  font-family: $font-secondary;
+  font-size: $font-size-xl;
 }
 
 .char {
@@ -112,49 +118,53 @@ form {
   }
 }
 
-.hint {
-  position: fixed;
-  right: 100px;
-}
-
-.hintButton {
-  position: inherit;
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-
-  :hover {
-    cursor: pointer;
-    filter: drop-shadow(0 0 7px $info);
-  }
-}
-
 .game {
   position: relative;
   top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.hintText {
-  @include text-primary;
-  position: inherit;
-  right: 50px;
-  top: 100px;
-  text-align: center;
-  margin: 0px;
-  padding: 10px;
-  width: auto;
-  background-color: rgba(0, 0, 0, 0.164);
-  border-radius: $base-border-radius;
+.hint {
+  position: fixed;
+  right: 100px;
+
+  .hintButton {
+    position: relative;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    :hover {
+      cursor: pointer;
+      filter: drop-shadow(0 0 7px $info);
+    }
+  }
+
+  .hintText {
+    @include text-primary;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    margin-right: 10px;
+    text-align: center;
+    padding: 10px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.164);
+    border-radius: $base-border-radius;
+  }
 }
 
 .stick {
-  position: fixed;
-  left: 570px;
-  bottom: 300px;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
 
   img {
-    height: 180px;
+    height: 300px;
     filter: drop-shadow(0 0 10px $highlight);
   }
 }
