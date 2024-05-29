@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/HangMan_React/static/css/main.380c1929.css",
-    "main.js": "/HangMan_React/static/js/main.a2d38f0f.js",
+    "main.css": "/HangMan_React/static/css/main.6ec90633.css",
+    "main.js": "/HangMan_React/static/js/main.f8cdfaea.js",
     "static/media/chalkboard.jpg": "/HangMan_React/static/media/chalkboard.f3ad80bdb4dea147fbfe.jpg",
     "index.html": "/HangMan_React/index.html",
-    "main.380c1929.css.map": "/HangMan_React/static/css/main.380c1929.css.map",
-    "main.a2d38f0f.js.map": "/HangMan_React/static/js/main.a2d38f0f.js.map"
+    "main.6ec90633.css.map": "/HangMan_React/static/css/main.6ec90633.css.map",
+    "main.f8cdfaea.js.map": "/HangMan_React/static/js/main.f8cdfaea.js.map"
   },
   "entrypoints": [
-    "static/css/main.380c1929.css",
-    "static/js/main.a2d38f0f.js"
+    "static/css/main.6ec90633.css",
+    "static/js/main.f8cdfaea.js"
   ]
 }
